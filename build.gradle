@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'API Testing'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+
+    // https://mvnrepository.com/artifact/com.jayway.restassured/rest-assured
+    testCompile group: 'com.jayway.restassured', name: 'rest-assured', version: '3.1.1'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/json-path
+    compile group: 'io.rest-assured', name: 'json-path', version: '3.1.1'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/xml-path
+    compile group: 'io.rest-assured', name: 'xml-path', version: '3.1.1'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator
+    compile group: 'io.rest-assured', name: 'json-schema-validator', version: '3.1.1'
+
+    // https://mvnrepository.com/artifact/io.rest-assured/scala-support
+    compile group: 'io.rest-assured', name: 'scala-support', version: '3.1.1'
+
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+
+}
