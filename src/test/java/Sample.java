@@ -3,6 +3,9 @@ import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+//hamcrest comes along with TestNG (Assertion Library)
+import static org.hamcrest.Matchers.equalTo;
+
 import static io.restassured.RestAssured.given;
 
 public class Sample {
@@ -14,7 +17,7 @@ public class Sample {
 
     }
 
-    @Test
+    @Test(enabled = false)
     public void statusVerification() {
         given()
                 .param("units", "imperial")
@@ -24,7 +27,9 @@ public class Sample {
                 .when()
                 .get("/distancematrix/json")
                 .then()
-                .statusCode(200);
+                .statusCode(200)
+                .and()
+                .body("rows[0].elements[1].duration.value",equalTo("13943"));
 
     }
 
