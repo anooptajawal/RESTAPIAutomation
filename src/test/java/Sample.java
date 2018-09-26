@@ -1,4 +1,5 @@
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class Sample {
 
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void statusVerification() {
         given()
                 .param("units", "imperial")
@@ -29,11 +30,16 @@ public class Sample {
                 .then()
                 .statusCode(200)
                 .and()
-                .body("rows[0].elements[1].duration.value",equalTo("13943"));
 
+                //validate the content from response body
+                .body("rows[0].elements[0].distance.value", equalTo(361993))
+                .body("rows[0].elements[0].distance.text", equalTo("225 mi"))
+
+                //Validate that the content type is JSON/XML
+                .contentType(ContentType.JSON);
     }
 
-    @Test
+    @Test(enabled = false)
     public void getResponseBody() {
         Response response = given()
                 .param("units", "imperial")
