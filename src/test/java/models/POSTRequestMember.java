@@ -3,7 +3,7 @@ package models;
 import java.util.Map;
 
 public class POSTRequestMember {
-    private Map<String,Double> location;
+    private Map<String, Double> location;
     private String formattedAddress;
     private String name;
     private float rating;

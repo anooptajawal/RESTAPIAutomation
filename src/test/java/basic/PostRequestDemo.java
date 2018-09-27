@@ -94,6 +94,15 @@ public class PostRequestDemo {
         post.setName("Museum of Contemporary Art Australia");
         post.setRating(4.3f);
 
+        given()
+                .queryParam("key", "AIzaSyCtgOTLQ4fXoRDPSleaw9FPFLxLXmjdeKA\n")
+                .body(post)
+                .when()
+                .post("/place/findplacefromtext/json")
+                .then()
+                .statusCode(200).and().contentType(ContentType.JSON);
+
+        //Unable to add body function to the code
 
     }
 }
