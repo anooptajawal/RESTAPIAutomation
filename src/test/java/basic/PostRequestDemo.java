@@ -2,23 +2,28 @@ package basic;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import models.POSTRequestMember;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 
 public class PostRequestDemo {
 
     @BeforeClass
-    public void setup(){
+    public void setup() {
         RestAssured.baseURI = "https://maps.googleapis.com";
         RestAssured.basePath = "/maps/api";
     }
 
-    @Test
-    public void validatePost(){
+    @Test(enabled = false)
+    public void validatePost() {
         given()
-                .queryParam("key","AIzaSyCtgOTLQ4fXoRDPSleaw9FPFLxLXmjdeKA\n")
+                .queryParam("key", "AIzaSyCtgOTLQ4fXoRDPSleaw9FPFLxLXmjdeKA\n")
 
                 //this is the Request Body. location is a map. so consider using hashmap to store the values
                 .body("{\n" +
@@ -68,5 +73,27 @@ public class PostRequestDemo {
                 .post("/place/findplacefromtext/json")
                 .then()
                 .statusCode(200).and().contentType(ContentType.JSON);
+    }
+
+    @Test(enabled = true)
+    public void validatePOSTPOJO() {
+        POSTRequestMember places = new POSTRequestMember();
+
+        // Defining location using Hashmap - Check Java Collections to know more
+        Map<String, Double> locationMap = new HashMap<>();
+        locationMap.put("lat", 33.8599358);
+        locationMap.put("lng", 151.2090295);
+
+        // For List Objects
+        ArrayList<String> type = new ArrayList<>();
+        type.add("bla bla");
+
+        POSTRequestMember post = new POSTRequestMember();
+        post.setLocation(locationMap);
+        post.setFormattedAddress("140 George St, The Rocks NSW 2000, Australia");
+        post.setName("Museum of Contemporary Art Australia");
+        post.setRating(4.3f);
+
+
     }
 }
