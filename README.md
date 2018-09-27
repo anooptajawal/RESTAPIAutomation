@@ -112,3 +112,6 @@ https://www.quora.com/What-is-the-difference-between-QueryParam-and-pathParam-in
 https://stackoverflow.com/questions/15407881/trying-to-create-a-hash-table-in-java-using-string-as-key-double-as-value
 https://www.onlinetutorialspoint.com/java/how-hash-map-works-in-java.html
 https://stackoverflow.com/questions/11552248/when-to-use-queryparam-vs-pathparam
+
+What is Access token?
+In computer systems, an access token contains the security credentials for a login session and identifies the user, the user's groups, the user's privileges, and, in some cases, a particular application.
