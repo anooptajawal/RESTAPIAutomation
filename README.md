@@ -105,3 +105,10 @@ Double quotes has a special meaning
 “ in between string ”
 
 \ -> Escape Character, \” -> Escape special meaning of double quotes
+
+Some useful Links :
+https://stackoverflow.com/questions/10074359/difference-between-an-http-query-parameter-and-http-form-parameter
+https://www.quora.com/What-is-the-difference-between-QueryParam-and-pathParam-in-Webservices
+https://stackoverflow.com/questions/15407881/trying-to-create-a-hash-table-in-java-using-string-as-key-double-as-value
+https://www.onlinetutorialspoint.com/java/how-hash-map-works-in-java.html
+https://stackoverflow.com/questions/11552248/when-to-use-queryparam-vs-pathparam
